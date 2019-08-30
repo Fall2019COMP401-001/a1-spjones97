@@ -26,6 +26,7 @@ public class A1Jedi {
 			String firstName = scan.next();
 			String lastName = scan.next();
 			int amountItems = scan.nextInt();
+			String[] customerList = new String[amountItems];
 			for (int j = 0; j < amountItems; j++) {
 				int itemNumber = scan.nextInt();
 				String item = scan.next();
@@ -33,6 +34,11 @@ public class A1Jedi {
 					if (item.equals(itemNames[k])) {
 						itemsPurchased[k] += itemNumber;
 						customerPurchase[k] += 1;
+					}
+				}
+				for (int l = 0; l < amountItems; l++) {
+					if (item.equals(customerList[l])) {
+						customerPurchase[l] -= 1;
 					}
 				}
 			}
