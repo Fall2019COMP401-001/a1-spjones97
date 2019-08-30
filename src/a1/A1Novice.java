@@ -15,14 +15,14 @@ public class A1Novice {
 			char firstInitial = firstName.charAt(0);
 			String lastName = scan.next();
 			int itemNumber = scan.nextInt();
-			float total = 0;
+			double total = 0;
 			for (int j = 0; j < itemNumber; j++) {
 				int amount = scan.nextInt();
 				String itemName = scan.next();
 				double cost = scan.nextDouble();
 				total += amount * cost;
 			}
-			System.out.println(firstInitial + ". " + lastName + ": " + total);
+			System.out.println(firstInitial + ". " + lastName + ": " + String.format("%.2f", total));
 		}
 
 		scan.close();
