@@ -15,7 +15,7 @@ public class A1Novice {
 			char firstInitial = firstName.charAt(0);
 			String lastName = scan.next();
 			int itemNumber = scan.nextInt();
-			double total = 0;
+			float total = 0;
 			for (int j = 0; j < itemNumber; j++) {
 				int amount = scan.nextInt();
 				String itemName = scan.next();
