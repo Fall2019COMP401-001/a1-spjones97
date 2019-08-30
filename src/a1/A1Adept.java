@@ -1,6 +1,6 @@
 package a1;                                                                                                            
-                                                                                                                                                                                                                       
-import java.util.Scanner;                                                                                                                                                                                                
+                                                                                                                       
+import java.util.Scanner;                                                                                              
                                                                                                                        
 public class A1Adept {                                                                                                 
                                                                                                                        
@@ -64,12 +64,11 @@ public class A1Adept {
 		}                                                                                                              
 		averageTotal = averageTotal / customers;                                                                       
                                                                                                                        
-		System.out.println("Biggest: " + biggestTotalName.trim() + "(" + String.format("%.2f", biggestTotal) + ")");          
-		System.out.println("Smallest: " + smallestTotalName.trim() + "(" + String.format("%.2f", smallestTotal) + ")");       
+		System.out.println("Biggest: " + biggestTotalName + " (" + String.format("%.2f", biggestTotal) + ")");         
+		System.out.println("Smallest: " + smallestTotalName + " (" + String.format("%.2f", smallestTotal) + ")");      
 		System.out.println("Average: " + String.format("%.2f", averageTotal));                                         
                                                                                                                        
 		scan.close();                                                                                                  
                                                                                                                        
 	}                                                                                                                  
-}                                                                                                                      
-                                                                                                                                                                                                                                                               
+}                                                                                                                                                                                                                                                                                                                                                         
