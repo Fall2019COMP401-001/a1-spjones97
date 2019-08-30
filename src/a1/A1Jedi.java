@@ -44,5 +44,6 @@ public class A1Jedi {
 				System.out.println(customerPurchase[i] + " customers bought " + itemsPurchased[i] + " " + itemNames[i]);
 			}
 		}
+		scan.close();
 	}
 }
