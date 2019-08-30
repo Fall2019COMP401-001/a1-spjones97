@@ -31,7 +31,7 @@ public class A1Jedi {
 				String item = scan.next();
 				for (int k = 0; k < amountOfItems; k++) {
 					if (item.equals(itemNames[k])) {
-						itemsPurchased[k] += 1;
+						itemsPurchased[k] += itemNumber;
 						customerPurchase[k] += 1;
 					}
 				}
