@@ -5,51 +5,63 @@ import java.util.Scanner;
 public class A1Jedi {
 
 	public static void main(String[] args) {
-		
+
 		Scanner scan = new Scanner(System.in);
 
 		// Your code follows here.
-		int amountOfItems = scan.nextInt();
-		int[] itemsPurchased = new int[amountOfItems];
-		String[] itemNames = new String[amountOfItems];
-		int[] customerPurchase = new int[amountOfItems];
-		for (int i = 0; i < amountOfItems; i++) {
+		int itemAmount = scan.nextInt();
+		String[] itemNames = new String[itemAmount];
+		int[] itemAmountPurchased = new int[itemAmount];
+		for (int i = 0; i < itemAmount; i++) {
 			String itemName = scan.next();
 			itemNames[i] = itemName;
-			double itemCost = scan.nextDouble();
-			itemsPurchased[i] = 0;
-			customerPurchase[i] = 0;
-
+			double cost = scan.nextDouble(); // Disregard
 		}
+
 		int customerAmount = scan.nextInt();
+		int[] customerItemsPurchased = new int[itemAmount];
 		for (int i = 0; i < customerAmount; i++) {
-			String firstName = scan.next();
-			String lastName = scan.next();
-			int amountItems = scan.nextInt();
-			String[] customerList = new String[amountItems];
-			for (int j = 0; j < amountItems; j++) {
+			String firstName = scan.next(); // Disregard
+			String lastName = scan.next(); // Disregard
+			int customerItemsAmount = scan.nextInt();
+			String[] customerList = new String[customerItemsAmount];
+			for (int j = 0; j < customerItemsAmount; j++) {
 				int itemNumber = scan.nextInt();
 				String item = scan.next();
-				for (int k = 0; k < amountOfItems; k++) {
-					if (item.equals(itemNames[k])) {
-						itemsPurchased[k] += itemNumber;
-						customerPurchase[k] += 1;
+				if (exists(item, customerList)) {
+					for (int k = 0; k < itemAmount; k++) {
+						if (item.equals(itemNames[k])) {
+							itemAmountPurchased[k] += itemNumber;
+						}
+					}
+				} else {
+					for (int k = 0; k < itemAmount; k++) {
+						if (item.equals(itemNames[k])) {
+							itemAmountPurchased[k] += itemNumber;
+							customerItemsPurchased[k] += 1;
+						}
 					}
 				}
-				for (int l = 0; l < amountItems; l++) {
-					if (item.equals(customerList[l])) {
-						customerPurchase[l] -= 1;
-					}
-				}
+				customerList[j] = item;
 			}
 		}
-		for (int i = 0; i < amountOfItems; i++) {
-			if (customerPurchase[i] == 0) {
+
+		for (int i = 0; i < itemAmount; i++) {
+			if (customerItemsPurchased[i] == 0) {
 				System.out.println("No customers bought " + itemNames[i]);
 			} else {
-				System.out.println(customerPurchase[i] + " customers bought " + itemsPurchased[i] + " " + itemNames[i]);
+				System.out.println(customerItemsPurchased[i] + " customers bought " + itemAmountPurchased[i] + " " + itemNames[i]);
 			}
 		}
+
 		scan.close();
 	}
-}
+	static boolean exists(String item, String[] list) {
+		for (int i = 0; i < list.length; i++) {
+			if (item.equals(list[i])) {
+				return true;
+			}
+		}
+		return false;
+	};
+};
